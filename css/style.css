@@ -1,0 +1,45 @@
+#main-wrapper
+{
+	width: 1080px;
+	margin:  auto;
+}
+
+header
+{
+	background-color: grey;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	text-transform: uppercase;
+}
+
+#logo
+{
+	margin: 10px 0 0 45px;
+}
+
+nav ul
+{
+	display:  flex;
+	list-style-type: none;
+/*	background-color: green;*/
+}
+
+nav li
+{
+	margin-right: 45px;
+}
+
+nav a
+{
+	font-size: 1.3em;
+	text-decoration: none;
+	color: black;
+}
+
+nav a:hover
+{
+	border-bottom: solid black 3px;
+	color: red;
+}
