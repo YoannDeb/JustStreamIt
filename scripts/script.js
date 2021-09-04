@@ -36,9 +36,9 @@ function bestFilm(){
 //     console.log("http://localhost:8000/api/v1/titles/" + id + "/?format=json")
 // }
 
-async function bestFilmsIdsPage1(){
+async function bestFilmsIdsPage1(genre){
     let ids = [];
-    await fetch("http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_score")
+    await fetch("http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_score&genre=" + genre)
         .then(function(resolution){
             if(resolution.ok){
                 return resolution.json();
@@ -48,7 +48,6 @@ async function bestFilmsIdsPage1(){
             for(result of json.results){
                 ids.push(result.id);
             }
-            console.log(ids);
     })
     .catch(function(e){
         console.error(e);
@@ -56,9 +55,9 @@ async function bestFilmsIdsPage1(){
     return ids;
 }
 
-async function bestFilmsIdsPage2(){
+async function bestFilmsIdsPage2(genre){
     let ids = [];
-    await fetch("http://localhost:8000/api/v1/titles/?format=json&page=2&sort_by=-imdb_score")
+    await fetch("http://localhost:8000/api/v1/titles/?format=json&page=2&sort_by=-imdb_score&genre=" + genre)
         .then(function(resolution){
             if(resolution.ok){
                 return resolution.json();
@@ -75,17 +74,14 @@ async function bestFilmsIdsPage2(){
     return ids;
 }
 
-async function bestFilmsIds(){
-    let idsPage1 = await bestFilmsIdsPage1();
-    let idsPage2 = await bestFilmsIdsPage2();
-    console.log(idsPage1.concat(idsPage2));
+async function bestFilmsIds(genre){
+    let idsPage1 = await bestFilmsIdsPage1(genre);
+    let idsPage2 = await bestFilmsIdsPage2(genre);
     return idsPage1.concat(idsPage2);
 }
 
 async function modifyCategoryFilmsImage(ids, selector){
-    console.log(selector)
     let links = document.querySelectorAll(selector + " a");
-    console.log(links);
     for(let i = 0; i < ids.length; i++){
         fetch("http://localhost:8000/api/v1/titles/" + ids[i] + "?format=json")
         .then(function(resolution){
@@ -94,7 +90,8 @@ async function modifyCategoryFilmsImage(ids, selector){
             }
         })
         .then(function(json){
-            links[i].innerHTML = '<img src="' + json.image_url + '" alt="' + json.title + ' poster" />';
+            links[i].innerHTML = '<img src="' + json.image_url + '" alt="' + json.title + ' poster" />'
+            links[i].setAttribute("href", json.url);
         })
         .catch(function(e){
             console.error(e);
@@ -121,7 +118,10 @@ async function modifyCategoryFilmsImage(ids, selector){
 // });
 async function main(){
     bestFilm();
-    modifyCategoryFilmsImage(await bestFilmsIds(), "#best_films");
+    modifyCategoryFilmsImage(await bestFilmsIds(""), "#best_films")
+    modifyCategoryFilmsImage(await bestFilmsIds("sci-fi"), "#Sci-Fi")
+    modifyCategoryFilmsImage(await bestFilmsIds("comedy"), "#Comedy")
+    modifyCategoryFilmsImage(await bestFilmsIds("music"), "#Music");
 }
 
 main()
