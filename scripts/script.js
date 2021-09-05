@@ -1,3 +1,4 @@
+// Models
 const baseURL = "http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_score&genre="
 
 async function fetchMovies(genre, quantity){
@@ -27,6 +28,7 @@ async function fetchMovieDetailled(movie){
     return await response.json();
 }
 
+// Views
 async function modifyBestFilm(movieDetailled){
     document.querySelector("#best_film h1").innerText = movieDetailled.title;
     document.querySelector("#best_film img").setAttribute("src", movieDetailled.image_url);
@@ -42,6 +44,7 @@ async function modifyCategoryFilmsImage(movies, selector){
     }
 }
 
+// Controllers
 async function main(){
     let bestFilms = await fetchMovies("", 8);
     let bestFilm = await bestFilms.shift();
