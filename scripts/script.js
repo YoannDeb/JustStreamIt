@@ -35,12 +35,17 @@ async function modifyBestFilm(movieDetailled){
     document.querySelector("#best_film p").innerText = movieDetailled.description;
 }
 
+function createImageElement(movie){
+    let imageElement = document.createElement("img");
+    imageElement.setAttribute( "src", movie.image_url);
+    imageElement.setAttribute("alt", movie.title + " poster");
+    return imageElement;
+}
+
 async function modifyCategoryFilmsImage(movies, selector){
-    let links = document.querySelectorAll(selector + " a");
-    for(let i = 0; i < movies.length; i++){
-            links[i].innerHTML = '<img src="' + movies[i].image_url + '" alt="' + movies[i].title + ' poster" />'
-            links[i].setAttribute("href", movies[i].imdb_url);
-            links[i].setAttribute("target", "_blank");
+    document.querySelector(selector).removeChild(document.querySelector(selector + " figure"));
+    for(let movie of movies){
+        document.querySelector(selector).appendChild(createImageElement(movie));
     }
 }
 

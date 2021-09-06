@@ -39,13 +39,15 @@ nav a:hover{
 
 .carroussel{
 	width: 1260px;
-	background-color: rgba(100, 100, 100, 0.5);
+	/* background-color: rgba(100, 100, 100, 0.5); */
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	justify-content: center;
 	margin: auto;
 }
 
-.carroussel a img{
+.carroussel img{
 	width: 180px;
+
 }
