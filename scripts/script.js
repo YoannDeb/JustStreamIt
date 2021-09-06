@@ -50,6 +50,9 @@ async function modifyCategoryFilmsImage(movies, selector){
 }
 
 // Controllers
+// Possible event listener that must wrap function ?:
+// window.addEventListener('load', function()
+// document.addEventListener('DOMContentLoaded', () => {
 async function main(){
     let bestFilms = await fetchMovies("", 8);
     let bestFilm = await bestFilms.shift();
