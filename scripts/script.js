@@ -35,12 +35,13 @@ async function modifyBestFilm(movieDetailed){
 }
 
 function createImageElement(movie){
-    // let buttonElement = document.createElement("button");
     let imageElement = document.createElement("img");
-    imageElement.setAttribute( "src", movie.image_url);
+    imageElement.setAttribute("src", movie.image_url);
     imageElement.setAttribute("alt", movie.title + " poster");
-    imageElement.setAttribute("class", "movieImage" + movie.id)
-    // buttonElement.appendChild(imageElement);
+    imageElement.setAttribute("class", "movieImage");
+    imageElement.setAttribute("role", "button");
+    imageElement.setAttribute("aria-haspopup", "dialog");
+    imageElement.setAttribute("aria-controls", "dialog");
     return imageElement;
 }
 
@@ -193,7 +194,7 @@ window.onclick = function(event){
 // Possible event listener that must wrap function ?:
 // window.addEventListener('load', function()
 // document.addEventListener('DOMContentLoaded', () => {
-    
+
 document.addEventListener('DOMContentLoaded', function(){
     main();
 })
