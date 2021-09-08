@@ -1,10 +1,10 @@
-#main-wrapper{
+#main-wrapper {
 	width: 80%;
 	margin:  auto;
 	text-align: center;
 }
 
-header{
+header {
 	background-color: grey;
 	display: flex;
 	justify-content: space-between;
@@ -13,41 +13,125 @@ header{
 	text-transform: uppercase;
 }
 
-#logo{
+#logo {
 	margin: 10px 0 0 45px;
 }
 
-nav ul{
+nav ul {
 	display:  flex;
 	list-style-type: none;
 }
 
-nav li{
+nav li {
 	margin-right: 45px;
 }
 
-nav a{
+nav a {
 	font-size: 1.3em;
 	text-decoration: none;
 	color: black;
 }
 
-nav a:hover{
+nav a:hover {
 	border-bottom: solid black 3px;
-	color: red;
+	color: #D50000;
 }
 
-.carroussel{
-	width: 1260px;
+#best_film {
+	display: flex;
+	justify-content: center;
+	margin: 25px;
+}
+
+#best_film > div {
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-around;
+	border: solid;
+	width: 50%;
+	height: 300px;
+}
+
+#button {
+	width: 100px;
+}
+
+#best_film div p {
+	width: 500px;
+}
+
+.carousel {
+	/* width: 1274px; */
 	/* background-color: rgba(100, 100, 100, 0.5); */
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	/* margin: auto; */
+}
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	background-color: #fefefe;
 	margin: auto;
-}
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
 
-.carroussel img{
-	width: 180px;
+  .modal-header {
+	padding: 2px 16px;
+	background-color: #D50000;
+	color: white;
+  }
 
-}
+  .modal-body {
+	  padding: 2px 16px;
+	}
+
+  .modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	animation-name: animatetop;
+	animation-duration: 0.4s
+  }
+
+  @keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+  }
