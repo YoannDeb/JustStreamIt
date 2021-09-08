@@ -5,8 +5,8 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
-	<div id="main-wrapper">
-		<body>
+	<body>
+		<div id="main-wrapper">
 			<header>
 				<img id="logo" src="img/logo.png" alt="Logo Just Stream It" />
 				<nav>
@@ -21,7 +21,11 @@
 				<div>
 					<h1>Meilleur film</h1>
 					<div>
-						<button id="button">Plus d'info</button>
+						<button id="button"
+							type="button" 
+							aria-haspopup="dialog"
+							aria-controls="dialog">Plus d'info
+						</button>
 					</div>
 					<p></p>
 					<figure>
@@ -60,17 +64,29 @@
 
 			<footer>
 			</footer>
-
-			<div class="modal" role="dialog">
-				<div class="modal-content">
+		</div>
+		<div class="modal">
+			<div
+				role="dialog"
+				aria-labelledby="dialog-title"
+				aria-describedby="dialog-desc"
+				aria-modal="true"
+				aria-hidden="true"
+				tabindex="-1">
+				<div class="modal-content" role="document">
 					<div class="modal-header">
-				  		<span class="close">&times;</span>
+						<span class="close"
+							type="button" 
+							aria-label="Fermer"
+							title="Fermer cette fenêtre modale"
+							data-dismiss="dialog">&times;
+						</span>
 					</div>
 					<div class="modal-body">
 					</div>
 				</div>
 			</div>
-			  <script type="text/javascript" src="scripts/script.js"></script>
-		</body>
-	</div>
+		</div>
+		<script type="text/javascript" src="scripts/script.js"></script>
+	</body>
 </html> 
