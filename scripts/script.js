@@ -46,10 +46,10 @@ function createImageElement(movie){
 }
 
 async function modifyCategoryFilmsImage(movies, selector){
-    document.querySelector(selector).removeChild(document.querySelector(selector + " figure"));
+    document.querySelector(selector + " div").removeChild(document.querySelector(selector + " div figure"));
     for(let movie of movies){
         let imageElement = createImageElement(movie)
-        document.querySelector(selector).appendChild(imageElement);
+        document.querySelector(selector + " div").appendChild(imageElement);
         imageElement.onclick = async function(){
             let movieDetailed = await fetchMovieDetailed(movie);
             fillModal(movieDetailed);
@@ -153,42 +153,91 @@ function emptyModal() {
     document.querySelector(".modal-body").removeChild(document.querySelector(".modal-body div"));
 }
 
+function initiateAllCarouselsContents(){
+    let carouselSectionElements = document.getElementsByClassName("carousel");
+    for (let element of carouselSectionElements) {
+        let imgElement = element.getElementsByTagName("img");
+        for (i = 0; i < 4; i++){
+            imgElement[i].classList.add("view");
+        }
+    };
+}
+
+function carouselHandler(previousButton, nextButton, carouselId){
+    previousButton.addEventListener("click", function(){
+        const displayedCards = document.querySelectorAll(carouselId + " div img.view");
+        const previousCard = displayedCards[0].previousElementSibling
+        if (previousCard){
+            previousCard.classList.add("view");
+            displayedCards[3].classList.remove("view");
+        }
+    });
+
+    nextButton.addEventListener("click", function(){
+        const displayedCards = document.querySelectorAll(carouselId + " div img.view");
+        const nextCard = displayedCards[3].nextElementSibling
+        if (nextCard){
+            nextCard.classList.add("view");
+            displayedCards[0].classList.remove("view");
+        }
+    });
+}
 
 
 // Controllers
 
 async function main(){
     let bestMovies = await fetchMovies("", 8);
-    let bestMovieDetailed = await fetchMovieDetailed(await bestMovies.shift())
+    let bestMovieDetailed = await fetchMovieDetailed(await bestMovies.shift());
     let sciFiMovies = await fetchMovies("sci-fi", 7);
     let comedyMovies = await fetchMovies("comedy", 7);
     let musicMovies = await fetchMovies("music", 7);
     await modifyBestFilm(bestMovieDetailed);
-    await modifyCategoryFilmsImage(bestMovies, "#best_films")
-    await modifyCategoryFilmsImage(sciFiMovies, "#Sci-Fi")
-    await modifyCategoryFilmsImage(comedyMovies, "#Comedy")
+    await modifyCategoryFilmsImage(bestMovies, "#best_films");
+    await modifyCategoryFilmsImage(sciFiMovies, "#Sci-Fi");
+    await modifyCategoryFilmsImage(comedyMovies, "#Comedy");
     await modifyCategoryFilmsImage(musicMovies, "#Music");
+    
+    initiateAllCarouselsContents();
 
-let modal = document.getElementsByClassName("modal")[0];
-let button = document.getElementById("button");
-let span = document.getElementsByClassName("close")[0];
+    const bestFilmsPreviousButton = document.getElementById("best_films__prev");
+    const bestFilmsNextButton = document.getElementById("best_films__next");
 
-button.onclick = function(){
-    fillModal(bestMovieDetailed);
-    modal.style.display = "block";
-}
+    const sciFiPreviousButton = document.getElementById("Sci-Fi__prev");
+    const sciFiNextButton = document.getElementById("Sci-Fi__next");
 
-span.onclick = function(){
-    emptyModal();
-    modal.style.display = "none";
-}
+    const comedyPreviousButton = document.getElementById("Comedy__prev");
+    const comedyNextButton = document.getElementById("Comedy__next");
 
-window.onclick = function(event){
-    if (event.target == modal) {
+    const musicPreviousButton = document.getElementById("Music__prev");
+    const musicNextButton = document.getElementById("Music__next");
+
+    carouselHandler(bestFilmsPreviousButton, bestFilmsNextButton, "#best_films")
+    carouselHandler(sciFiPreviousButton, sciFiNextButton, "#Sci-Fi");
+    carouselHandler(comedyPreviousButton, comedyNextButton, "#Comedy");
+    carouselHandler(musicPreviousButton, musicNextButton, "#Music");
+
+
+    let modal = document.getElementsByClassName("modal")[0];
+    let button = document.getElementById("button");
+    let span = document.getElementsByClassName("close")[0];
+
+    button.onclick = function(){
+        fillModal(bestMovieDetailed);
+        modal.style.display = "block";
+    }
+
+    span.onclick = function(){
         emptyModal();
         modal.style.display = "none";
     }
-}
+
+    window.onclick = function(event){
+        if (event.target == modal) {
+            emptyModal();
+            modal.style.display = "none";
+        }
+    }
 }
 
 // Possible event listener that must wrap function ?:

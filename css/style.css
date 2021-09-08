@@ -68,7 +68,17 @@ nav a:hover {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	/* margin: auto; */
+	margin: auto;
+}
+
+.carousel div img {
+	display: none;
+	pointer-events: none;
+}
+
+.carousel div img.view {
+	display: inline;
+	pointer-events: all;
 }
 
 .modal {
@@ -117,6 +127,7 @@ nav a:hover {
 
   .modal-body {
 	  padding: 2px 16px;
+	  text-align: center;
 	}
 
   .modal-content {
