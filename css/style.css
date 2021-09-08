@@ -71,12 +71,14 @@ nav a:hover {
 	margin: auto;
 }
 
-.carousel div img {
+.carousel div img,
+.carousel button {
 	display: none;
 	pointer-events: none;
 }
 
-.carousel div img.view {
+.carousel div img.view,
+.carousel button.view {
 	display: inline;
 	pointer-events: all;
 }

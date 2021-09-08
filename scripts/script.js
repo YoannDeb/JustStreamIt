@@ -165,20 +165,31 @@ function initiateAllCarouselsContents(){
 
 function carouselHandler(previousButton, nextButton, carouselId){
     previousButton.addEventListener("click", function(){
-        const displayedCards = document.querySelectorAll(carouselId + " div img.view");
-        const previousCard = displayedCards[0].previousElementSibling
-        if (previousCard){
-            previousCard.classList.add("view");
-            displayedCards[3].classList.remove("view");
+        const displayedImages = document.querySelectorAll(carouselId + " div img.view");
+        const previousImage = displayedImages[0].previousElementSibling
+        if (previousImage){
+            previousImage.classList.add("view");
+            displayedImages[3].classList.remove("view");
+            let previousPreviousImage = previousImage.previousElementSibling;
+            if (previousPreviousImage){
+            }else{
+                previousButton.classList.remove("view");}
+            nextButton.classList.add("view");
         }
     });
 
     nextButton.addEventListener("click", function(){
-        const displayedCards = document.querySelectorAll(carouselId + " div img.view");
-        const nextCard = displayedCards[3].nextElementSibling
-        if (nextCard){
-            nextCard.classList.add("view");
-            displayedCards[0].classList.remove("view");
+        const displayedImages = document.querySelectorAll(carouselId + " div img.view");
+        const nextImage = displayedImages[3].nextElementSibling
+        if (nextImage){
+            nextImage.classList.add("view");
+            displayedImages[0].classList.remove("view");
+            let nextNextImage = nextImage.nextElementSibling 
+            if (nextNextImage){
+            }else{
+                nextButton.classList.remove("view");
+            }
+            previousButton.classList.add("view");
         }
     });
 }
