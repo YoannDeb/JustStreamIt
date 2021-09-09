@@ -16,6 +16,7 @@ header {
 	flex-wrap: wrap;
 	align-items: flex-end;
 	text-transform: uppercase;
+	border-radius: 25px;
 }
 
 #logo {
@@ -49,7 +50,7 @@ nav a:hover {
 	margin: 50px auto;
 	width: 70%;
 	border: solid;
-	border-radius: 15px;
+	border-radius: 25px;
 	align-items: center;
 	background-color: grey;
 	color: black;
@@ -67,8 +68,12 @@ nav a:hover {
 
 #button {
 	width: 100px;
-	background-color: red;
+	background-color: rgb(197, 196, 196);
 	border-radius: 12px;
+}
+
+#button:hover {
+	border-color: red;
 }
 
 #best_film div h1{
@@ -78,6 +83,10 @@ nav a:hover {
 
 #best_film div p {
 	width: 80%;
+}
+
+section {
+	margin-top: 250px;
 }
 
 .carousel {
@@ -100,16 +109,28 @@ nav a:hover {
 	margin: 15px;
 	width: 35px;
 	height: 75px;
-
+	background-color: grey;
+	border-radius: 5px;
 }
 
 .carousel div img.view{
 	display: inline;
 	pointer-events: all;
+	border: solid;
+	border-color: black;
+	border-radius: 15px;
+}
+
+.carousel div img.view:hover{
+	border-color: red;
 }
 
 .carousel button.view {
 	opacity: 1;
+}
+
+.carousel button.view:hover {
+	border: solid red;
 }
 
 .modal {
