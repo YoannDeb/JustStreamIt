@@ -55,7 +55,6 @@ async function modifyCategoryFilmsImage(movies, selector){
             fillModal(movieDetailed);
             let modal = document.getElementsByClassName("modal")[0];
             modal.style.display = "block";
-            console.log("test");
         }
     }
 }
@@ -177,7 +176,6 @@ function carouselHandler(previousButton, nextButton, carouselId){
             nextButton.classList.add("view");
         }
     });
-
     nextButton.addEventListener("click", function(){
         const displayedImages = document.querySelectorAll(carouselId + " div img.view");
         const nextImage = displayedImages[3].nextElementSibling
