@@ -47,10 +47,12 @@ nav a:hover {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin: 50px auto;
-	width: 80%;
+	width: 70%;
 	border: solid;
+	border-radius: 15px;
 	align-items: center;
-	padding-top: 15px;
+	background-color: grey;
+	color: black;
 }
 
 #best_film > div {
@@ -67,6 +69,11 @@ nav a:hover {
 	width: 100px;
 	background-color: red;
 	border-radius: 12px;
+}
+
+#best_film div h1{
+	text-decoration: underline;
+	font-size: 30px;
 }
 
 #best_film div p {
