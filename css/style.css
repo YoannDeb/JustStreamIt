@@ -14,7 +14,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	align-items: flex-end;
+	align-items: center;
 	text-transform: uppercase;
 	border-radius: 25px;
 }
@@ -39,7 +39,7 @@ nav a {
 }
 
 nav a:hover {
-	border-bottom: solid black 3px;
+	/* border-bottom: solid black 3px; */
 	color: #D50000;
 }
 
@@ -78,16 +78,21 @@ nav a:hover {
 
 #best_film div h1{
 	text-decoration: underline;
-	font-size: 30px;
+	font-size: 50px;
 }
 
 #best_film div p {
 	width: 80%;
+	font-size: 20px;
 }
 
 section {
 	margin-top: 250px;
 }
+
+/* section div h1 {
+	text-align: left;
+} */
 
 .carousel {
 	/* width: 1274px; */
