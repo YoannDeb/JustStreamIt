@@ -1,4 +1,4 @@
-import { fetchMovieDetailed } from "./models";
+import { fetchMovieDetailed } from "./api.js";
 
 export async function modifyBestFilm(movieDetailed){
     document.querySelector("#best_film h1").innerText = movieDetailed.title;
@@ -41,7 +41,7 @@ export function fillModal(detailedMovie) {
     let infoElement = document.createElement("div");
 
     let genresElement = document.createElement("p");
-    var genres = detailedMovie.genres;
+    let genres = detailedMovie.genres;
     let genresString = "";
     if (genres.length == 1){
         genresString = "Genre : " + genres[0];
@@ -69,7 +69,7 @@ export function fillModal(detailedMovie) {
     infoElement.appendChild(imdbScoreElement);
 
     let directorsElement = document.createElement("p");
-    var directors = detailedMovie.directors;
+    let directors = detailedMovie.directors;
     let directorsString = ""
     if (directors.length = 1){
         directorsString = "Réalisateur : " + directors[0];
@@ -83,7 +83,7 @@ export function fillModal(detailedMovie) {
     infoElement.appendChild(directorsElement);
 
     let actorsElement = document.createElement("p");
-    var actors = detailedMovie.actors;
+    let actors = detailedMovie.actors;
     let actorsString = "";
     if (actors.length == 1){
         actorsString = "Acteur : " + actors[0];
@@ -102,7 +102,7 @@ export function fillModal(detailedMovie) {
     infoElement.appendChild(durationElement);
 
     let countriesElement = document.createElement("p");
-    var countries = detailedMovie.countries;
+    let countries = detailedMovie.countries;
     let countriesString = "Pays d'origine : " + countries.shift();
     for (let country of countries){
         countriesString = countriesString + ", " + country;
