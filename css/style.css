@@ -1,3 +1,8 @@
+body {
+	background: black;
+	color: white;
+}
+
 #main-wrapper {
 	width: 80%;
 	margin:  auto;
@@ -39,8 +44,12 @@ nav a:hover {
 
 #best_film {
 	display: flex;
-	justify-content: center;
-	margin: 25px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin: 50px;
+	width: 80%;
+	border: solid;
+
 }
 
 #best_film > div {
@@ -48,7 +57,6 @@ nav a:hover {
 	flex-wrap: wrap;
 	flex-direction: column;
 	justify-content: space-around;
-	border: solid;
 	width: 50%;
 	height: 300px;
 }
@@ -58,7 +66,7 @@ nav a:hover {
 }
 
 #best_film div p {
-	width: 500px;
+	width: 80%;
 }
 
 .carousel {
@@ -68,19 +76,29 @@ nav a:hover {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	margin: auto;
+	margin: 10px;
 }
 
-.carousel div img,
-.carousel button {
+.carousel div img {
 	display: none;
 	pointer-events: none;
+	margin: 10px;
+}
+.carousel button {
+	opacity:0.2;
+	margin: 15px;
+	width: 35px;
+	height: 75px;
+
 }
 
-.carousel div img.view,
-.carousel button.view {
+.carousel div img.view{
 	display: inline;
 	pointer-events: all;
+}
+
+.carousel button.view {
+	opacity: 1;
 }
 
 .modal {
