@@ -42,7 +42,7 @@ export async function main(){
 
     let modal = document.getElementsByClassName("modal")[0];
     let button = document.getElementById("button");
-    let span = document.getElementsByClassName("close")[0];
+    let span = document.getElementsByClassName("modal__content__header__close")[0];
 
     button.onclick = function(){
         fillModal(bestMovieDetailed);

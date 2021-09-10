@@ -34,9 +34,9 @@ export async function modifyCategoryFilmsImage(movies, selector){
 export function fillModal(detailedMovie) {
     let titleElement = document.createElement("h2");
     titleElement.innerText = detailedMovie.title;
-    document.querySelector(".modal-header").appendChild(titleElement);
+    document.querySelector(".modal__content__header").appendChild(titleElement);
     
-    document.querySelector(".modal-body").appendChild(createImageElement(detailedMovie));
+    document.querySelector(".modal__content__body").appendChild(createImageElement(detailedMovie));
     
     let infoElement = document.createElement("div");
 
@@ -114,18 +114,18 @@ export function fillModal(detailedMovie) {
     descriptionElement.innerText = detailedMovie.long_description;
     infoElement.appendChild(descriptionElement);
 
-    document.querySelector(".modal-body").appendChild(infoElement);
+    document.querySelector(".modal__content__body").appendChild(infoElement);
 }
 
 
 export function emptyModal() {
-    document.querySelector(".modal-header").removeChild(document.querySelector(".modal-header h2"));
-    document.querySelector(".modal-body").removeChild(document.querySelector(".modal-body img"));
-    document.querySelector(".modal-body").removeChild(document.querySelector(".modal-body div"));
+    document.querySelector(".modal__content__header").removeChild(document.querySelector(".modal__content__header h2"));
+    document.querySelector(".modal__content__body").removeChild(document.querySelector(".modal__content__body img"));
+    document.querySelector(".modal__content__body").removeChild(document.querySelector(".modal__content__body div"));
 }
 
 export function initiateAllCarouselsContents(){
-    let carouselSectionElements = document.getElementsByClassName("carousel");
+    let carouselSectionElements = document.getElementsByClassName("main-wrapper__carousel");
     for (let element of carouselSectionElements) {
         let imgElement = element.getElementsByTagName("img");
         for (let i = 0; i < 4; i++){
