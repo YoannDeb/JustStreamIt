@@ -1,6 +1,33 @@
+@font-face {
+    font-family: 'intro_rust_gbase_2_line';
+    src: url('fonts/introrustg-base2line-webfont.eot');
+    src: url('fonts/introrustg-base2line-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/introrustg-base2line-webfont.woff2') format('woff2'),
+         url('fonts/introrustg-base2line-webfont.woff') format('woff'),
+         url('fonts/introrustg-base2line-webfont.ttf') format('truetype'),
+         url('fonts/introrustg-base2line-webfont.svg#intro_rust_gbase_2_line') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'intro_head_rbase';
+    src: url('fonts/introheadr-base-webfont.eot');
+    src: url('fonts/introheadr-base-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/introheadr-base-webfont.woff2') format('woff2'),
+         url('fonts/introheadr-base-webfont.woff') format('woff'),
+         url('fonts/introheadr-base-webfont.ttf') format('truetype'),
+         url('fonts/introheadr-base-webfont.svg#intro_head_rbase') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
 	background: black;
-	color: white;
+	color: rgb(216,165,120);
+	font-family: intro_rust_gbase_2_line;
 }
 
 #main-wrapper {
@@ -10,7 +37,7 @@ body {
 }
 
 header {
-	background-color: grey;
+	background-color: rgb(216,165,120);
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -40,7 +67,7 @@ nav a {
 
 nav a:hover {
 	/* border-bottom: solid black 3px; */
-	color: #D50000;
+	color: rgb(185,14,10);
 }
 
 #best_film {
@@ -52,7 +79,7 @@ nav a:hover {
 	border: solid;
 	border-radius: 25px;
 	align-items: center;
-	background-color: grey;
+	background-color: rgb(144,13,9);
 	color: black;
 }
 
@@ -60,43 +87,51 @@ nav a:hover {
 	display:flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	justify-content: space-around;
-	align-content: center;
+	justify-content: center;
+	align-items: center;
 	width: 50%;
-	height: 300px;
-}
-
-#button {
-	width: 100px;
-	background-color: rgb(197, 196, 196);
-	border-radius: 12px;
-}
-
-#button:hover {
-	border-color: red;
+	height: auto;
+	margin-bottom: 20px;
+	margin-right: 10px
 }
 
 #best_film div h1{
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	font-size: 50px;
 }
 
 #best_film div p {
-	width: 80%;
+	width: 100%;
+	font-size: 15px;
+}
+
+#button {
+	width: 115px;
+	background-color: rgb(216,165,120);
+	border-radius: 12px;
+	font-family: intro_head_rbase;
 	font-size: 20px;
 }
 
+#button:hover {
+	border-color: rgb(185,14,10);
+	cursor: pointer;
+	color: rgb(185,14,10)
+}
+
+#best_film img {
+	border-radius: 10px;
+}
+
 section {
-	margin-top: 250px;
+	/* margin-top: 250px; */
 }
 
 /* section div h1 {
 	text-align: left;
 } */
 
-.carousel {
-	/* width: 1274px; */
-	/* background-color: rgba(100, 100, 100, 0.5); */
+.main-wrapper__carousel {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -104,45 +139,47 @@ section {
 	margin: 10px;
 }
 
-.carousel div img {
+.main-wrapper__carousel div img {
 	display: none;
 	pointer-events: none;
 	margin: 10px;
 }
-.carousel button {
+.main-wrapper__carousel button {
 	opacity:0.2;
 	margin: 15px;
 	width: 35px;
 	height: 75px;
-	background-color: grey;
+	background-color: rgb(216,165,120);
 	border-radius: 5px;
 }
 
-.carousel div img.view{
+.main-wrapper__carousel div img.view{
 	display: inline;
 	pointer-events: all;
 	border: solid;
 	border-color: black;
 	border-radius: 15px;
+	cursor: pointer;
 }
 
-.carousel div img.view:hover{
-	border-color: red;
+.main-wrapper__carousel div img.view:hover{
+	border-color: rgb(185,14,10);
 }
 
-.carousel button.view {
+.main-wrapper__carousel button.view {
 	opacity: 1;
 }
 
-.carousel button.view:hover {
-	border: solid red;
+.main-wrapper__carousel button.view:hover {
+	border: solid rgb(185,14,10);
 }
 
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
+	padding-top: 100px;
+	padding-bottom: 100px;
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -150,57 +187,67 @@ section {
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0,0,0); /* Fallback color */
 	background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-  }
+}
   
   /* Modal Content */
-  .modal-content {
-	background-color: #fefefe;
+.modal__content {
+	background-color: rgb(216,165,120);
 	margin: auto;
-	padding: 20px;
-	border: 1px solid #888;
+	margin-bottom: 200px;
+	position: relative;
+	/* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+	border-radius: 25px;
 	width: 80%;
 	color: black;
-  }
-  
-  /* The Close Button */
-  .close {
-	color: #aaaaaa;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+.modal__content__header__close {
+	color: rgb(216,165,120);
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
-	color: #000;
+.modal__content__header__close:hover,
+.modal__content__header__close:focus {
+	color: black;
 	text-decoration: none;
 	cursor: pointer;
-  }
+}
 
-  .modal-header {
+.modal__content__header {
 	padding: 2px 16px;
-	background-color: #D50000;
-	color: white;
-  }
+	background-color: rgb(144,13,9);
+	border-radius: 25px 25px 0 0;
+}
 
-  .modal-body {
+.modal__content__body {
 	  padding: 2px 16px;
 	  text-align: center;
+	  font-family: intro_head_rbase;
+	  font-size: 20px;
 	}
 
-  .modal-content {
-	position: relative;
-	background-color: #fefefe;
-	margin: auto;
-	padding: 0;
-	border: 1px solid #888;
-	width: 80%;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-	animation-name: animatetop;
-	animation-duration: 0.4s
-  }
+.modal__content__body img {
+	margin-top: 25px;
+	border-radius: 15px;
+}
 
-  @keyframes animatetop {
-	from {top: -300px; opacity: 0}
-	to {top: 0; opacity: 1}
-  }
+	/* .modal__content {
+		position: relative;
+		background-color: rgb(245, 203, 167);
+		margin: auto;
+		padding: 0;
+
+		width: 80%;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+		animation-name: animatetop;
+		animation-duration: 0.4s
+	  } */
+	
+	  @keyframes animatetop {
+		from {top: -300px; opacity: 0}
+		to {top: 0; opacity: 1}
+	  }
