@@ -3,7 +3,7 @@ import { fetchMovieDetailed } from "./api.js";
 /**
  * Changes information displayed for the best film:
  * Title, image and description. 
- * @param {object} movieDetailed 
+ * @param {Object} movieDetailed 
  */
 export async function modifyBestFilm(movieDetailed){
     document.querySelector("#best_film h1").innerText = movieDetailed.title;
@@ -15,8 +15,8 @@ export async function modifyBestFilm(movieDetailed){
 /**
  * Takes a movie object and returns an <img /> element of
  * the poster of the film.
- * @param   {object} movie A movie's object.
- * @returns {object}       An HTML <img /> element.
+ * @param   {Object}      movie A movie's object.
+ * @returns {HTMLElement}       An HTML <img /> element.
  */
 function createImageElement(movie){
     let imageElement = document.createElement("img");
@@ -34,8 +34,8 @@ function createImageElement(movie){
  * Remove the loading image from HTML.
  * Appends <img /> elements to the section depending on the selector.
  * Initiates listener for the modal for each image.
- * @param {table}  movies   A list of movies' objects.
- * @param {string} selector CSS selector of the category targeted (ex: "#Sci-FI")
+ * @param {Array}  movies   A list of movies' objects.
+ * @param {String} selector CSS selector of the category targeted (ex: "#Sci-FI")
  */
 export async function modifyCategoryFilmsImage(movies, selector){
     document.querySelector(selector + " div").removeChild(document.querySelector(selector + " div figure"));
@@ -53,7 +53,7 @@ export async function modifyCategoryFilmsImage(movies, selector){
 
 /**
  * Fills the modal with all wanted info contained on a detailedMovie object.
- * @param {object} detailedMovie A movies' object more detailed, from the specific API's movie's pages.
+ * @param {Object} detailedMovie A movies' object more detailed, from the specific API's movie's pages.
  */
 export function fillModal(detailedMovie) {
     let titleElement = document.createElement("h2");
@@ -167,9 +167,9 @@ export function initiateAllCarouselsContents(){
 /**
  * Handles the carousel image swaping when pushing one button.
  * Handles deactivation of a button when the carousel is at an end.
- * @param {object} previousButton Previous button element of the carousel.
- * @param {object} nextButton     Next button element of the carousel.
- * @param {string} carouselId     CSS selector of the carousel.
+ * @param {Object} previousButton Previous button element of the carousel.
+ * @param {Object} nextButton     Next button element of the carousel.
+ * @param {String} carouselId     CSS selector of the carousel.
  */
 export function carouselHandler(previousButton, nextButton, carouselId){
     previousButton.addEventListener("click", function(){

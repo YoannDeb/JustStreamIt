@@ -3,9 +3,9 @@ const baseURL = "http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_
 /**
  * Completes movie list until the end of the movies provided or
  * the list lenght is equal to the quantity desired.
- * @param {object}  json      Parsed response of the API.
- * @param {table}   movies    A table of movies object we want to fill.
- * @param {number}  quantity  Quantity of movies desired in the final list.
+ * @param {Object}  json      Parsed response of the API.
+ * @param {Array}   movies    A table of movies object we want to fill.
+ * @param {Number}  quantity  Quantity of movies desired in the final list.
  */
 async function completeMovieList(json, movies, quantity){
     for (let result of await json.results){
@@ -18,8 +18,8 @@ async function completeMovieList(json, movies, quantity){
 /**
  * Makes a list with movies' objects fetched from API server.
  * Depends of genre and number of movies required.
- * @param {string} genre     If genre is an empty string, API will return best movies in all categories.
- * @param {number} quantity  Quantity of movies desired in the final list.
+ * @param {String} genre     If genre is an empty string, API will return best movies in all categories.
+ * @param {Number} quantity  Quantity of movies desired in the final list.
  * @returns                  A list of movies' objects.
  */
 export async function fetchMovies(genre, quantity){
@@ -37,8 +37,8 @@ export async function fetchMovies(genre, quantity){
 
 /**
  * Take a movie object and return an other movie object, more detailed, from the API.
- * @param   {object} movie  A movie's object.
- * @returns {object}        A movies' object more detailed, from the specific API's movie's pages.
+ * @param   {Object} movie  A movie's object.
+ * @returns {Object}        A movies' object more detailed, from the specific API's movie's pages.
  */
 export async function fetchMovieDetailed(movie){
     let response = await fetch(movie.url);
