@@ -4,13 +4,13 @@ Readme en français : [README_FR.md](https://github.com/YoannDeb/JustStreamIt/bl
 
 Training site for a virtual streaming platform.
 
-The interface is in French langage.
+The interface is in French language.
 
 Part of [Open Classrooms](/https://openclassrooms.com) "DA Python" formation, 6th Project.
 
 ## Requirements:
 
-Needs a local test database and API to function.
+Needs a local test API to function.
 
 This API and all instructions to set it up and run it locally can be found there:
 
@@ -18,15 +18,15 @@ This API and all instructions to set it up and run it locally can be found there
 
 ## Structure of the project:
 
-index.html is found at the root of the project.
+"index.html" is found at the root of the project.
 
-In the css folder is located the style.css file and the fonts folder.
+In the "css" folder is located the "style.css" file and the "fonts" folder.
 
-in the scripts folder is located the javascripts files:
+In the "scripts" folder is located the javascript files:
 
-* script.js is the main file.
-* api.js contains code to deal with API.
-* views.js contains code dealing with HTML and CSS.
-* controllers.js contains code interfacing api and views.
+* "script.js" is the main file.
+* "api.js" contains code dedicated to exchange with API.
+* "views.js" contains code dedicated to HTML and CSS changes.
+* "controllers.js" contains code interfacing API and views.
 
-The image folder contains images of the project that will not be downloaded from the API.
+The "img" folder contains images of the project that will not be downloaded from the API.
