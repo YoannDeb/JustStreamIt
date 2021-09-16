@@ -3,6 +3,7 @@ import { fetchMovieDetailed } from "./api.js";
 export async function modifyBestFilm(movieDetailed){
     document.querySelector("#best_film h1").innerText = movieDetailed.title;
     document.querySelector("#best_film figure img").setAttribute("src", movieDetailed.image_url);
+    document.querySelector("#best_film figure img").setAttribute("title", movieDetailed.title);
     document.querySelector("#best_film p").innerText = movieDetailed.long_description;
 }
 
@@ -10,6 +11,7 @@ function createImageElement(movie){
     let imageElement = document.createElement("img");
     imageElement.setAttribute("src", movie.image_url);
     imageElement.setAttribute("alt", movie.title + " poster");
+    imageElement.setAttribute("title", movie.title);
     imageElement.setAttribute("class", "movieImage");
     imageElement.setAttribute("role", "button");
     imageElement.setAttribute("aria-haspopup", "dialog");
