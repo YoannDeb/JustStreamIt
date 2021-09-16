@@ -8,6 +8,15 @@ import {
     initiateAllCarouselsContents,
     carouselHandler} from './views.js';
 
+/**
+ * Main controller function: 
+ * - Retrieves movies wanted.
+ * - Modify HTML and CSS of the page to show info.
+ * - In the same time creates modal listening events for movies poster created.
+ * - Starts caroussel.
+ * - Creates modal listening event for the best film.
+ * - Creates modal closing handlers. 
+ */
 export async function main(){
     let bestMovies = await fetchMovies("", 8);
     let bestMovieDetailed = await fetchMovieDetailed(await bestMovies.shift());
@@ -53,7 +62,6 @@ export async function main(){
         emptyModal();
         modal.style.display = "none";
     }
-
     window.onclick = function(event){
         if (event.target == modal) {
             emptyModal();
