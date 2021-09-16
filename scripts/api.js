@@ -4,7 +4,7 @@ const baseURL = "http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_
  * Completes movie list until the end of the movies provided or
  * the list lenght is equal to the quantity desired.
  * @param {object}  json      Parsed response of the API.
- * @param {table}   movies    A table of Movies object we want to fill.
+ * @param {table}   movies    A table of movies object we want to fill.
  * @param {number}  quantity  Quantity of movies desired in the final list.
  */
 async function completeMovieList(json, movies, quantity){
@@ -37,8 +37,8 @@ export async function fetchMovies(genre, quantity){
 
 /**
  * Take a movie object and return an other movie object, more detailed, from the API.
- * @param {object} movie  A movie's object.
- * @returns               A movies' object but more detailed.
+ * @param   {object} movie  A movie's object.
+ * @returns {object}        A movies' object more detailed, from the specific API's movie's pages.
  */
 export async function fetchMovieDetailed(movie){
     let response = await fetch(movie.url);
