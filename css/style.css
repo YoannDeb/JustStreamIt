@@ -1,3 +1,4 @@
+/* FONTS */
 @font-face {
     font-family: 'intro_rust_gbase_2_line';
     src: url('fonts/introrustg-base2line-webfont.eot');
@@ -36,6 +37,7 @@ body {
 	text-align: center;
 }
 
+/* HEADER (logo and nav) */
 header {
 	background-color: rgb(216,165,120);
 	display: flex;
@@ -69,6 +71,7 @@ nav a:hover {
 	color: rgb(185,14,10);
 }
 
+/* BEST FILM SECTION */
 #best_film {
 	display: flex;
 	flex-wrap: wrap;
@@ -121,6 +124,7 @@ nav a:hover {
 	border-radius: 10px;
 }
 
+/* CAROUSELS */
 .main-wrapper__carousel {
 	display: flex;
 	flex-wrap: wrap;
@@ -165,6 +169,7 @@ nav a:hover {
 	border: solid rgb(185,14,10);
 }
 
+/* MODAL WINDOW */
 .modal {
 	display: none;
 	position: fixed;
