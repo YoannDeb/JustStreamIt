@@ -1,5 +1,10 @@
 import { fetchMovieDetailed } from "./api.js";
 
+/**
+ * Changes information displayed for the best film:
+ * Title, image and description. 
+ * @param {object} movieDetailed 
+ */
 export async function modifyBestFilm(movieDetailed){
     document.querySelector("#best_film h1").innerText = movieDetailed.title;
     document.querySelector("#best_film figure img").setAttribute("src", movieDetailed.image_url);
@@ -7,6 +12,12 @@ export async function modifyBestFilm(movieDetailed){
     document.querySelector("#best_film p").innerText = movieDetailed.long_description;
 }
 
+/**
+ * Takes a movie object and returns an <img /> element of
+ * the poster of the film.
+ * @param   {object} movie A movie's object.
+ * @returns {object}       An HTML <img /> element.
+ */
 function createImageElement(movie){
     let imageElement = document.createElement("img");
     imageElement.setAttribute("src", movie.image_url);
@@ -19,6 +30,13 @@ function createImageElement(movie){
     return imageElement;
 }
 
+/**
+ * Remove the loading image from HTML.
+ * Appends <img /> elements to the section depending on the selector.
+ * Initiates listener for the modal for each image.
+ * @param {table}  movies   A list of movies' objects.
+ * @param {string} selector CSS selector of the category targeted (ex: "#Sci-FI")
+ */
 export async function modifyCategoryFilmsImage(movies, selector){
     document.querySelector(selector + " div").removeChild(document.querySelector(selector + " div figure"));
     for(let movie of movies){
@@ -33,6 +51,10 @@ export async function modifyCategoryFilmsImage(movies, selector){
     }
 }
 
+/**
+ * Fills the modal with all wanted info contained on a detailedMovie object.
+ * @param {object} detailedMovie A movies' object more detailed, from the specific API's movie's pages.
+ */
 export function fillModal(detailedMovie) {
     let titleElement = document.createElement("h2");
     titleElement.innerText = detailedMovie.title;
@@ -119,13 +141,19 @@ export function fillModal(detailedMovie) {
     document.querySelector(".modal__content__body").appendChild(infoElement);
 }
 
-
+/**
+ * Empty the modal
+ * Used after closing for the modal to be ready to show another film.
+ */
 export function emptyModal() {
     document.querySelector(".modal__content__header").removeChild(document.querySelector(".modal__content__header h2"));
     document.querySelector(".modal__content__body").removeChild(document.querySelector(".modal__content__body img"));
     document.querySelector(".modal__content__body").removeChild(document.querySelector(".modal__content__body div"));
 }
 
+/**
+ * Makes the four first image elements of the carousel visible by adding the class "view".
+ */
 export function initiateAllCarouselsContents(){
     let carouselSectionElements = document.getElementsByClassName("main-wrapper__carousel");
     for (let element of carouselSectionElements) {
@@ -136,6 +164,13 @@ export function initiateAllCarouselsContents(){
     };
 }
 
+/**
+ * Handles the carousel image swaping when pushing one button.
+ * Handles deactivation of a button when the carousel is at an end.
+ * @param {object} previousButton Previous button element of the carousel.
+ * @param {object} nextButton     Next button element of the carousel.
+ * @param {string} carouselId     CSS selector of the carousel.
+ */
 export function carouselHandler(previousButton, nextButton, carouselId){
     previousButton.addEventListener("click", function(){
         const displayedImages = document.querySelectorAll(carouselId + " div img.view");
