@@ -13,7 +13,7 @@ import {
  * - Retrieves movies wanted.
  * - Modify HTML and CSS of the page to show info.
  * - In the same time creates modal listening events for movies poster created.
- * - Starts caroussel.
+ * - Starts carousel.
  * - Creates modal listening event for the best film.
  * - Creates modal closing handlers. 
  */
