@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:8000/api/v1/titles/?format=json&sort_by=-imdb_score&genre="
+const baseURL = "http://ocmovies.debinformatique.fr/api/v1/titles/?format=json&sort_by=-imdb_score&genre="
 
 /**
  * Completes movie list until the end of the movies provided or
